@@ -1,0 +1,62 @@
+<!doctype html>
+<html
+	lang="en"
+	data-theme="dark"
+>
+	<head>
+		<meta charset="utf-8" />
+		<title>Ripetizioni Matematica e Fisica Nettuno & Anzio | Laureato in Fisica</title>
+		<base href="/" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1"
+		/>
+		<meta
+			name="description"
+			content="Recupero insufficienze e preparazione verifiche per medie e superiori. Lezioni a Nettuno, Anzio e Lavinio con Laureato Magistrale."
+		/>
+		<meta
+			name="keywords"
+			content="Ripetizioni Matematica Nettuno, Fisica Anzio, Aiuto compiti Cretarossa, Tutor Fisica Online"
+		/>
+		<link
+			rel="icon"
+			type="image/x-icon"
+			href="favicon.ico"
+		/>
+	</head>
+	<body>
+		<app-root></app-root>
+		<script>
+			(function (C, A, L) {
+				let p = function (a, ar) {
+					a.q.push(ar);
+				};
+				let d = C.document;
+				C.Cal =
+					C.Cal ||
+					function () {
+						let cal = C.Cal;
+						let ar = arguments;
+						if (!cal.loaded) {
+							cal.ns = {};
+							cal.q = cal.q || [];
+							d.head.appendChild(d.createElement("script")).src = A;
+							cal.loaded = true;
+						}
+						if (ar[0] === "init") {
+							const api = function () {
+								p(api, arguments);
+							};
+							const namespace = ar[1];
+							api.q = api.q || [];
+							typeof namespace === "string" ? (cal.ns[namespace] = api) && p(api, ar) : p(cal, ar);
+							return;
+						}
+						p(cal, ar);
+					};
+			})(window, "https://app.cal.com/embed/embed.js", "init");
+			Cal("init", { origin: "https://cal.com" });
+		</script>
+	</body>
+</html>

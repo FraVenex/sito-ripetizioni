@@ -1,0 +1,103 @@
+import { Component } from "@angular/core";
+
+@Component({
+	selector: "app-about",
+	standalone: true,
+	imports: [],
+	template: `
+		<section
+			class="py-24 px-6 bg-dark-800"
+			id="chi-sono"
+		>
+			<div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+				<div>
+					<h2 class="text-4xl md:text-5xl font-extrabold text-brand-violet leading-tight tracking-tight mb-6">Chi sono</h2>
+
+					<p class="text-white/65 leading-relaxed text-base mb-4">
+						Mi chiamo <strong class="text-white/90">Francesco Veneziano</strong>, classe '95, una laurea magistrale in Fisica e lavoro come Full Stack Software Developer.
+					</p>
+					<p class="text-white/65 leading-relaxed text-base mb-4">
+						Aiuto ragazzi tramite le ripetizioni dal 2014 perché ricordo perfettamente com'è uscire da una lezione senza le idee chiare. Inoltre mi sono reso conto che non tutti coloro che danno
+						ripetizioni riescono a trasmettere i concetti in modo semplice ed adatto ai ragazzi, per cui mi sono messo in gioco per offrire il miglior servizio possibile.
+					</p>
+					<p class="text-white/65 leading-relaxed text-base mb-8">
+						Non insegno come un professore. Insegno come qualcuno che ha già sbagliato quelle stesse cose e sa esattamente dove si inceppa la comprensione.
+					</p>
+
+					<div class="grid grid-cols-2 gap-3 mb-8">
+						<div class="flex items-start gap-3 liquid-glass rounded-xl p-3.5">
+							<div class="w-9 h-9 rounded-lg bg-brand-purple/20 flex items-center justify-center text-brand-violet shrink-0">🎯</div>
+							<div>
+								<div class="text-white text-sm font-semibold">Metodo pratico</div>
+								<div class="text-white/55 text-xs leading-snug mt-0.5">Esempi reali, non teoria astratta</div>
+							</div>
+						</div>
+						<div class="flex items-start gap-3 liquid-glass rounded-xl p-3.5">
+							<div class="w-9 h-9 rounded-lg bg-brand-purple/20 flex items-center justify-center text-brand-violet shrink-0">💬</div>
+							<div>
+								<div class="text-white text-sm font-semibold">Zero giudizi</div>
+								<div class="text-white/55 text-xs leading-snug mt-0.5">Puoi chiedere tutto, anche 10 volte</div>
+							</div>
+						</div>
+						<div class="flex items-start gap-3 liquid-glass rounded-xl p-3.5">
+							<div class="w-9 h-9 rounded-lg bg-brand-purple/20 flex items-center justify-center text-brand-violet shrink-0">📱</div>
+							<div>
+								<div class="text-white text-sm font-semibold">Sempre disponibile</div>
+								<div class="text-white/55 text-xs leading-snug mt-0.5">WhatsApp tra una lezione e l'altra</div>
+							</div>
+						</div>
+						<div class="flex items-start gap-3 liquid-glass rounded-xl p-3.5">
+							<div class="w-9 h-9 rounded-lg bg-brand-purple/20 flex items-center justify-center text-brand-violet shrink-0">🖊️</div>
+							<div>
+								<div class="text-white text-sm font-semibold">iPad</div>
+								<div class="text-white/55 text-xs leading-snug mt-0.5">Spiegazioni visive e interattive + condivisione rapida</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="liquid-glass p-10 rounded-3xl relative overflow-hidden">
+					<!-- Background blob for depth -->
+					<div class="absolute -top-24 -right-24 w-48 h-48 bg-brand-purple/20 rounded-full blur-3xl pointer-events-none"></div>
+					<div class="absolute -bottom-24 -left-24 w-48 h-48 bg-brand-indigo/20 rounded-full blur-3xl pointer-events-none"></div>
+					<img
+						src="assets/images/ProfilePic.png"
+						alt="Francesco Veneziano"
+						class="w-40 h-40 rounded-full object-cover mb-6 border-2 border-white/10 shadow-2xl shadow-brand-purple/20 [image-rendering:pixelated]"
+					/>
+					<div class="text-xl font-extrabold text-white mb-1">Francesco Veneziano</div>
+
+					<div class="flex flex-wrap gap-2 mb-8">
+						<span class="inline-flex items-center gap-1.5 bg-brand-purple/15 border border-brand-purple/30 text-brand-violet text-xs font-semibold px-3 py-1 rounded-full"
+							>🎓 Laurea Magistrale Fisica</span
+						>
+						<span class="inline-flex items-center gap-1.5 bg-brand-purple/15 border border-brand-purple/30 text-brand-violet text-xs font-semibold px-3 py-1 rounded-full"
+							>💻 Full Stack Software Developer</span
+						>
+					</div>
+
+					<div class="grid grid-cols-2 gap-3 mb-6">
+						<div class="bg-white/[0.05] rounded-xl p-4 text-center">
+							<div class="text-3xl font-extrabold gradient-text">10+</div>
+							<div class="text-xs text-white/45 mt-1">Studenti seguiti</div>
+						</div>
+						<div class="bg-white/[0.05] rounded-xl p-4 text-center">
+							<div class="text-3xl font-extrabold gradient-text">5★</div>
+							<div class="text-xs text-white/45 mt-1">Valutazione media</div>
+						</div>
+					</div>
+
+					<div class="pt-5 border-t border-white/[0.08]">
+						<div class="text-xs font-bold tracking-widest uppercase text-white/35 mb-3">Zone disponibili</div>
+						<div class="flex flex-wrap gap-1.5">
+							<span class="bg-white/[0.06] border border-white/10 text-white/65 text-xs px-3 py-1 rounded-full">Nettuno</span>
+							<span class="bg-white/[0.06] border border-white/10 text-white/65 text-xs px-3 py-1 rounded-full">Anzio</span>
+							<span class="bg-white/[0.06] border border-white/10 text-white/65 text-xs px-3 py-1 rounded-full">Online</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	`
+})
+export class AboutComponent {}
