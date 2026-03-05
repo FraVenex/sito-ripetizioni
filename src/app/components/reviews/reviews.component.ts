@@ -15,17 +15,17 @@ interface Review {
 	imports: [CommonModule, FormsModule],
 	template: `
 		<section
-			class="py-24 px-6 bg-dark-800"
+			class="py-16 md:py-24 px-5 md:px-8 bg-dark-800"
 			id="recensioni"
 		>
 			<div class="max-w-6xl mx-auto">
 				<p class="text-xs font-bold tracking-widest uppercase text-brand-violet text-center mb-4">Recensioni</p>
-				<h2 class="text-4xl md:text-5xl font-extrabold text-white text-center leading-tight tracking-tight mb-3">Parole loro, non mie.</h2>
-				<p class="text-white/50 text-center text-base mb-12">Quello che dicono gli studenti (e i genitori) dopo le lezioni.</p>
+				<h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white text-center leading-tight tracking-tight mb-3">Parole loro, non mie.</h2>
+				<p class="text-white/50 text-center text-sm md:text-base mb-10 md:mb-12 px-4">Quello che dicono gli studenti (e i genitori) dopo le lezioni.</p>
 
-				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
 					@for (review of reviews(); track $index) {
-						<div class="liquid-glass rounded-2xl p-7 hover:-translate-y-0.5 hover:border-brand-violet/20 transition-all duration-300">
+						<div class="liquid-glass rounded-2xl p-6 md:p-7 hover:-translate-y-0.5 hover:border-brand-violet/20 transition-all duration-300">
 							<div class="text-5xl leading-none text-brand-violet/25 font-serif mb-2">"</div>
 							<p class="text-white/78 text-base leading-relaxed italic mb-6">{{ review.text }}</p>
 							<div class="flex items-center gap-3">

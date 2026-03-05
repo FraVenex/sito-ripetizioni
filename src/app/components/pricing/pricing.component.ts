@@ -20,24 +20,28 @@ interface PricePlan {
 	imports: [CommonModule, NgClass],
 	template: `
 		<section
-			class="py-24 px-6 bg-dark-700"
+			class="py-16 md:py-24 px-5 md:px-8 bg-dark-700"
 			id="prenota"
 		>
 			<div class="max-w-5xl mx-auto">
 				<p class="text-xs font-bold tracking-widest uppercase text-brand-violet text-center mb-4">Prezzi</p>
-				<h2 class="text-4xl md:text-5xl font-extrabold text-white text-center leading-tight tracking-tight mb-3">Un investimento su te stesso.</h2>
-				<p class="text-white/55 text-center text-lg mb-10">Scegli la durata più adatta. Nessun abbonamento, nessun vincolo.</p>
+				<h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white text-center leading-tight tracking-tight mb-3">Un investimento su te stesso.</h2>
+				<p class="text-white/55 text-center px-4 text-base md:text-lg mb-2">Scegli la durata più adatta. Nessun abbonamento, nessun vincolo.</p>
+				<p class="text-white/55 text-center px-4 text-base md:text-lg mb-8 md:mb-10">
+					Sono inoltre previste tariffe agevolate per <strong class="text-white/65">percorsi continuativi</strong> o <strong class="text-white/65">sessioni di gruppo</strong> (da concordare
+					privatamente).
+				</p>
 
-				<div class="flex items-center justify-center mb-12">
-					<div class="bg-white/5 p-1.5 rounded-2xl flex items-center border border-white/10 backdrop-blur-sm relative cursor-pointer">
+				<div class="flex items-center justify-center mb-10 md:mb-12 px-4">
+					<div class="bg-white/5 p-1.5 rounded-xl flex items-center border border-white/10 backdrop-blur-sm relative cursor-pointer w-full max-w-[340px]">
 						<div
-							class="absolute left-[6px] top-[6px] bottom-[6px] w-[160px] rounded-xl bg-white/15 transition-transform duration-300 ease-out z-0 border border-white/10"
+							class="absolute left-[6px] top-[6px] bottom-[6px] w-[calc(50%-6px)] rounded-lg bg-white/15 transition-transform duration-300 ease-out z-0 border border-white/10"
 							[ngClass]="isHighSchool() ? 'translate-x-full' : 'translate-x-0'"
 						></div>
 
 						<button
 							(click)="isHighSchool.set(false)"
-							class="relative z-10 w-[160px] py-2.5 text-sm font-semibold transition-colors duration-300 text-center rounded-xl"
+							class="relative z-10 flex-1 py-2.5 text-xs sm:text-sm font-semibold transition-colors duration-300 text-center rounded-lg bg-transparent border-none outline-none cursor-pointer"
 							[ngClass]="!isHighSchool() ? 'text-white' : 'text-white/50 hover:text-white/80'"
 						>
 							Scuole Medie
@@ -45,7 +49,7 @@ interface PricePlan {
 
 						<button
 							(click)="isHighSchool.set(true)"
-							class="relative z-10 w-[160px] py-2.5 text-sm font-semibold transition-colors duration-300 text-center rounded-xl"
+							class="relative z-10 flex-1 py-2.5 text-xs sm:text-sm font-semibold transition-colors duration-300 text-center rounded-lg bg-transparent border-none outline-none cursor-pointer"
 							[ngClass]="isHighSchool() ? 'text-white' : 'text-white/50 hover:text-white/80'"
 						>
 							Scuole Superiori
@@ -56,7 +60,7 @@ interface PricePlan {
 				<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 					<div
 						*ngFor="let plan of currentPlans()"
-						class="relative rounded-2xl p-8 border transition-all duration-300 hover:-translate-y-1"
+						class="relative rounded-2xl p-6 md:p-8 border transition-all duration-300 hover:-translate-y-1"
 						[ngClass]="plan.featured ? 'bg-brand-purple/12 border-brand-purple/40 hover:shadow-2xl hover:shadow-brand-purple/20' : 'liquid-glass hover:border-brand-violet/25 hover:shadow-xl'"
 					>
 						<div
@@ -88,11 +92,12 @@ interface PricePlan {
 					</div>
 				</div>
 
-				<div class="mt-10 space-y-3">
-					<p class="text-center text-white/40 text-sm"><strong class="text-white/65">Prima lezione gratuita</strong> — prenotando una sessione da 1.5 ore o 2 ore. Vieni a conoscermi senza impegno.</p>
-					<p class="text-center text-white/40 text-sm">
+				<div class="mt-10 md:mt-12 space-y-3 px-4">
+					<p class="text-center text-white/40 text-sm md:text-base">
+						<strong class="text-white/65">Prima lezione gratuita</strong> — prenotando una sessione da 1.5 ore o 2 ore. Vieni a conoscermi senza impegno.
+					</p>
+					<p class="text-center text-white/40 text-sm md:text-base">
 						Il pagamento avviene comodamente di persona in <strong class="text-white/65">contanti</strong> o tramite <strong class="text-white/65">PayPal</strong>.<br class="hidden sm:block" />
-						Sono inoltre previste tariffe agevolate per <strong class="text-white/65">percorsi continuativi</strong> o <strong class="text-white/65">sessioni di gruppo</strong>.
 					</p>
 				</div>
 			</div>

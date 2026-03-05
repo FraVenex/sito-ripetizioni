@@ -128,7 +128,7 @@ import { LogoComponent } from "../ui/logo.component";
 
 		<div
 			class="fixed z-40 flex-col gap-2 px-6 py-4 bg-dark-800/97 backdrop-blur-xl border-b border-white/[0.07] transition-all duration-300"
-			[style.top]="scrolled() ? '60px' : '64px'"
+			[style.top]="'64px'"
 			[style.left]="'0'"
 			[style.right]="'0'"
 			[class.flex]="menuOpen()"
@@ -200,7 +200,7 @@ export class NavbarComponent {
 
 	navTopStyle = `
 		height: 64px;
-		padding: 0 24px;
+		padding: 0 16px;
 		background: rgba(13,13,26,0.85);
 		backdrop-filter: blur(20px);
 		-webkit-backdrop-filter: blur(20px);
@@ -211,10 +211,10 @@ export class NavbarComponent {
 		top: 12px;
 		left: 50%;
 		transform: translateX(-50%);
-		width: auto;
-		min-width: 200px;
+		width: calc(100% - 32px);
+		max-width: 1000px;
 		height: auto;
-		padding: 8px 16px;
+		padding: 6px 16px;
 		border-radius: 9999px;
 		background: rgba(255,255,255,0.08);
 		backdrop-filter: blur(40px) saturate(180%);
