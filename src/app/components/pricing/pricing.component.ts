@@ -24,12 +24,9 @@ interface PricePlan {
 		>
 			<div class="max-w-5xl mx-auto">
 				<p class="text-xs font-bold tracking-widest uppercase text-brand-violet text-center mb-4">Prezzi</p>
-				<h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white text-center leading-tight tracking-tight mb-3">Un investimento su te stesso.</h2>
-				<p class="text-white/55 text-center px-4 text-base md:text-lg mb-2">Scegli la durata più adatta. Nessun abbonamento, nessun vincolo.</p>
-				<p class="text-white/55 text-center px-4 text-base md:text-lg mb-8 md:mb-10">
-					Sono inoltre previste tariffe agevolate per <strong class="text-white/65">percorsi continuativi</strong> o <strong class="text-white/65">sessioni di gruppo</strong> (da concordare
-					privatamente).
-				</p>
+				<h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white text-center leading-tight tracking-tight mb-3">Investi sul tuo futuro.</h2>
+				<p class="text-white/55 text-center px-4 text-base md:text-lg mb-2">Scegli la durata e la tariffa* più adatte a te, nessun vincolo.</p>
+				<p class="text-white/45 text-center px-4 text-base md:text-sm mb-8 md:mb-10">*Le tariffe per percorsi continuativi e sessioni di gruppo sono agevolate (da concordare privatamente).</p>
 
 				<div class="flex items-center justify-center mb-10 md:mb-12 px-4">
 					<div class="bg-white/5 p-1.5 rounded-xl flex items-center border border-white/10 backdrop-blur-sm relative cursor-pointer w-full max-w-[340px]">

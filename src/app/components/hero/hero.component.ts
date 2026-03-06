@@ -53,9 +53,8 @@ import { Component } from "@angular/core";
 					<p class="text-lg md:text-2xl text-white font-medium mb-6 leading-relaxed">Capisco la frustrazione perché ci sono passato anche io.</p>
 
 					<p class="text-base md:text-lg text-white/70 leading-relaxed mb-10">
-						Ho vissuto il blocco davanti ai compiti, il senso di essere "negati", la demotivazione. Poi, grazie a chi ha saputo <strong class="text-white/90">sbloccarmi</strong>, ho scoperto che
-						Matematica e Fisica sono <strong class="text-white/90">semplici ed affascinanti</strong>. Oggi metto quell'empatia al servizio di ragazzi e genitori, trasformando la paura in comprensione
-						e i brutti voti in una carriera.
+						Lascia che ti aiuti a <strong class="text-white/90">sbloccare</strong> la tua capacità di apprendimento e a rendere <strong class="text-white/90">semplici ed affascinanti</strong> le
+						materie che ti spaventano.
 					</p>
 				</div>
 

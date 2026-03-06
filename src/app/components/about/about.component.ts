@@ -18,11 +18,12 @@ import { NgOptimizedImage } from "@angular/common";
 						Mi chiamo <strong class="text-white/90">Francesco Veneziano</strong>, classe '95, una laurea magistrale in Fisica e lavoro come Full Stack Software Developer.
 					</p>
 					<p class="text-white/65 leading-relaxed text-sm md:text-base mb-4">
-						Aiuto ragazzi tramite le ripetizioni dal 2014 perché ricordo perfettamente com'è uscire da una lezione senza le idee chiare. Inoltre mi sono reso conto che non tutti coloro che danno
-						ripetizioni riescono a trasmettere i concetti in modo semplice ed adatto ai ragazzi, per cui mi sono messo in gioco per offrire il miglior servizio possibile.
+						Aiuto ragazzi tramite le ripetizioni dal 2014 perché ricordo perfettamente com'è uscire da una lezione senza le idee chiare a causa di spiegazioni poco chiare, frettolose e spesso
+						superficiali. Inoltre mi sono reso conto che non tutti coloro che danno ripetizioni riescono a trasmettere i concetti in modo semplice ed adatto ai ragazzi, per cui mi sono messo in gioco
+						per offrire il miglior servizio possibile.
 					</p>
 					<p class="text-white/65 leading-relaxed text-sm md:text-base mb-8">
-						Non insegno come un professore. Insegno come qualcuno che ha già sbagliato quelle stesse cose e sa esattamente dove si inceppa la comprensione.
+						In me non troverai un professore (anche perché non lo sono), ma una figura che farà di tutto per aiutarti a capire quanto queste materie in fondo siano semplici ed affascinanti.
 					</p>
 
 					<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">

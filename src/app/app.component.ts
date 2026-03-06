@@ -1,27 +1,22 @@
 import { Component } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { RouterOutlet } from "@angular/router";
 import { NavbarComponent } from "./components/navbar/navbar.component";
-import { HeroComponent } from "./components/hero/hero.component";
-import { ReviewsComponent } from "./components/reviews/reviews.component";
-import { AboutComponent } from "./components/about/about.component";
 import { FooterComponent } from "./components/footer/footer.component";
-import { PricingComponent } from "./components/pricing/pricing.component";
+import { CookieConsentComponent } from "./components/cookie-consent/cookie-consent.component";
 
 @Component({
 	selector: "app-root",
 	standalone: true,
-	imports: [CommonModule, NavbarComponent, HeroComponent, PricingComponent, ReviewsComponent, AboutComponent, FooterComponent],
+	imports: [CommonModule, RouterOutlet, NavbarComponent, FooterComponent, CookieConsentComponent],
 	template: `
 		<app-navbar></app-navbar>
 
-		<main class="min-h-screen bg-base-100">
-			<app-hero id="hero"></app-hero>
-			<app-pricing id="prezzi"></app-pricing>
-			<app-reviews id="recensioni"></app-reviews>
-			<app-about id="chi-sono"></app-about>
-		</main>
+		<router-outlet></router-outlet>
 
 		<app-footer></app-footer>
+
+		<app-cookie-consent></app-cookie-consent>
 	`
 })
 export class AppComponent {

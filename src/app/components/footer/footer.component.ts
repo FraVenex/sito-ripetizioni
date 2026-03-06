@@ -1,9 +1,10 @@
 import { Component } from "@angular/core";
+import { RouterLink } from "@angular/router";
 
 @Component({
 	selector: "app-footer",
 	standalone: true,
-	imports: [],
+	imports: [RouterLink],
 	template: `
 		<footer class="bg-dark-900 border-t border-white/[0.06] pt-12 md:pt-16 pb-6 md:pb-8 px-5 md:px-8">
 			<div class="max-w-6xl mx-auto">
@@ -71,6 +72,18 @@ import { Component } from "@angular/core";
 
 				<div class="border-t border-white/[0.06] pt-6 flex flex-wrap items-center justify-between gap-4">
 					<span class="text-white/30 text-xs">© {{ year }} Francesco Veneziano · Aura Math</span>
+					<div class="flex gap-4">
+						<a
+							routerLink="/privacy-policy"
+							class="text-white/30 hover:text-white/55 text-xs no-underline transition-colors"
+							>Privacy Policy</a
+						>
+						<a
+							routerLink="/cookie-policy"
+							class="text-white/30 hover:text-white/55 text-xs no-underline transition-colors"
+							>Cookie Policy</a
+						>
+					</div>
 				</div>
 			</div>
 		</footer>
