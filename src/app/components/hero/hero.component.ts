@@ -9,7 +9,6 @@ import { Component } from "@angular/core";
 			class="min-h-[92vh] flex items-center justify-center relative overflow-hidden px-5 md:px-6 py-12 md:py-20"
 			style="background: linear-gradient(135deg, #0a1f14 0%, #1a3a2a 50%, #0f2a1e 100%)"
 		>
-			<!-- Background elements -->
 			<div class="absolute inset-0 overflow-hidden pointer-events-none">
 				<div
 					class="absolute top-1/4 left-1/4 w-64 h-64 rounded-full opacity-10 blur-3xl"
@@ -21,7 +20,6 @@ import { Component } from "@angular/core";
 				></div>
 			</div>
 
-			<!-- Floating Cards Container (Desktop Only) -->
 			<div class="absolute inset-0 pointer-events-none hidden lg:block">
 				@for (card of frustrationCards; track card.text) {
 					<div
@@ -61,7 +59,6 @@ import { Component } from "@angular/core";
 					</p>
 				</div>
 
-				<!-- Stats simple -->
 				<div class="flex flex-wrap gap-8 justify-center opacity-70">
 					<div class="text-center">
 						<div class="text-xl font-bold text-white tracking-tight">STUDENTE</div>

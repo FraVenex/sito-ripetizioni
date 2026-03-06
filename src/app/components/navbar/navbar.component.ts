@@ -8,12 +8,13 @@ import { LogoComponent } from "../ui/logo.component";
 	template: `
 		<nav
 			class="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
-			[style]="scrolled() ? navScrolledStyle : navTopStyle"
+			[class]="
+				scrolled()
+					? 'top-3 left-1/2 -translate-x-1/2 w-[calc(100%-32px)] max-w-[1000px] h-auto p-1.5 px-4 rounded-full bg-white/8 border border-white/18 backdrop-blur-2xl shadow-2xl ring-1 ring-white/15'
+					: 'h-16 px-4 bg-dark-900/85 backdrop-blur-xl border-b border-white/7'
+			"
 		>
-			<div
-				class="transition-all duration-500 flex items-center justify-between"
-				[style]="scrolled() ? innerScrolledStyle : innerTopStyle"
-			>
+			<div class="h-full flex items-center justify-between transition-all duration-500">
 				<a
 					href="#"
 					class="flex items-center shrink-0 no-underline"
@@ -54,10 +55,7 @@ import { LogoComponent } from "../ui/logo.component";
 					</ul>
 				}
 
-				<div
-					class="flex items-center"
-					[style.gap]="scrolled() ? '8px' : '8px'"
-				>
+				<div class="flex items-center gap-2">
 					<a
 						href="#prenota"
 						class="inline-flex items-center justify-center transition-all no-underline"
@@ -197,41 +195,6 @@ import { LogoComponent } from "../ui/logo.component";
 export class NavbarComponent {
 	menuOpen = signal(false);
 	scrolled = signal(false);
-
-	navTopStyle = `
-		height: 64px;
-		padding: 0 16px;
-		background: rgba(13,13,26,0.85);
-		backdrop-filter: blur(20px);
-		-webkit-backdrop-filter: blur(20px);
-		border-bottom: 1px solid rgba(255,255,255,0.07);
-	`;
-
-	navScrolledStyle = `
-		top: 12px;
-		left: 50%;
-		transform: translateX(-50%);
-		width: calc(100% - 32px);
-		max-width: 1000px;
-		height: auto;
-		padding: 6px 16px;
-		border-radius: 9999px;
-		background: rgba(255,255,255,0.08);
-		backdrop-filter: blur(40px) saturate(180%);
-		-webkit-backdrop-filter: blur(40px) saturate(180%);
-		border: 1px solid rgba(255,255,255,0.18);
-		box-shadow: 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.15);
-	`;
-
-	innerTopStyle = `
-		width: 100%;
-		height: 100%;
-	`;
-
-	innerScrolledStyle = `
-		gap: 12px;
-		align-items: center;
-	`;
 
 	@HostListener("window:scroll")
 	onScroll() {

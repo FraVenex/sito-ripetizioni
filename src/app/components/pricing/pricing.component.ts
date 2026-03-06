@@ -1,5 +1,4 @@
 import { Component, signal, computed } from "@angular/core";
-import { CommonModule, NgClass } from "@angular/common";
 import { environment } from "../../../environments/environment";
 
 declare const Cal: any;
@@ -17,7 +16,7 @@ interface PricePlan {
 @Component({
 	selector: "app-pricing",
 	standalone: true,
-	imports: [CommonModule, NgClass],
+	imports: [],
 	template: `
 		<section
 			class="py-16 md:py-24 px-5 md:px-8 bg-dark-700"
@@ -36,21 +35,20 @@ interface PricePlan {
 					<div class="bg-white/5 p-1.5 rounded-xl flex items-center border border-white/10 backdrop-blur-sm relative cursor-pointer w-full max-w-[340px]">
 						<div
 							class="absolute left-[6px] top-[6px] bottom-[6px] w-[calc(50%-6px)] rounded-lg bg-white/15 transition-transform duration-300 ease-out z-0 border border-white/10"
-							[ngClass]="isHighSchool() ? 'translate-x-full' : 'translate-x-0'"
+							[class.translate-x-full]="isHighSchool()"
+							[class.translate-x-0]="!isHighSchool()"
 						></div>
 
 						<button
 							(click)="isHighSchool.set(false)"
-							class="relative z-10 flex-1 py-2.5 text-xs sm:text-sm font-semibold transition-colors duration-300 text-center rounded-lg bg-transparent border-none outline-none cursor-pointer"
-							[ngClass]="!isHighSchool() ? 'text-white' : 'text-white/50 hover:text-white/80'"
+							[class]="middleSchoolTabClass()"
 						>
 							Scuole Medie
 						</button>
 
 						<button
 							(click)="isHighSchool.set(true)"
-							class="relative z-10 flex-1 py-2.5 text-xs sm:text-sm font-semibold transition-colors duration-300 text-center rounded-lg bg-transparent border-none outline-none cursor-pointer"
-							[ngClass]="isHighSchool() ? 'text-white' : 'text-white/50 hover:text-white/80'"
+							[class]="highSchoolTabClass()"
 						>
 							Scuole Superiori
 						</button>
@@ -58,46 +56,47 @@ interface PricePlan {
 				</div>
 
 				<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-					<div
-						*ngFor="let plan of currentPlans()"
-						class="relative rounded-2xl p-6 md:p-8 border transition-all duration-300 hover:-translate-y-1"
-						[ngClass]="plan.featured ? 'bg-brand-purple/12 border-brand-purple/40 hover:shadow-2xl hover:shadow-brand-purple/20' : 'liquid-glass hover:border-brand-violet/25 hover:shadow-xl'"
-					>
+					@for (plan of currentPlans(); track plan.duration) {
 						<div
-							*ngIf="plan.badge"
-							class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-br from-brand-purple to-brand-indigo text-white text-xs font-bold px-4 py-1 rounded-full whitespace-nowrap"
+							class="relative rounded-2xl p-6 md:p-8 border transition-all duration-300 hover:-translate-y-1"
+							[class]="plan.featured ? 'bg-brand-purple/12 border-brand-purple/40 hover:shadow-2xl hover:shadow-brand-purple/20' : 'liquid-glass hover:border-brand-violet/25 hover:shadow-xl'"
 						>
-							{{ plan.badge }}
-						</div>
+							@if (plan.badge) {
+								<div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-br from-brand-purple to-brand-indigo text-white text-xs font-bold px-4 py-1 rounded-full whitespace-nowrap">
+									{{ plan.badge }}
+								</div>
+							}
 
-						<div class="text-xs font-bold tracking-widest uppercase text-white/60 mb-5">{{ plan.label }}</div>
-						<div class="flex items-baseline gap-1 mb-1">
-							<span class="text-xl font-bold text-white/65">€</span>
-							<span class="text-5xl font-extrabold text-white leading-none">{{ plan.price }}</span>
-						</div>
-						<div class="text-sm text-white/40 mb-5">/ {{ plan.duration }}</div>
-						<p class="text-sm text-white/60 leading-relaxed mb-8">{{ plan.desc }}</p>
+							<div class="text-xs font-bold tracking-widest uppercase text-white/60 mb-5">{{ plan.label }}</div>
+							<div class="flex items-baseline gap-1 mb-1">
+								<span class="text-xl font-bold text-white/65">€</span>
+								<span class="text-5xl font-extrabold text-white leading-none">{{ plan.price }}</span>
+							</div>
+							<div class="text-sm text-white/40 mb-5">/ {{ plan.duration }}</div>
+							<p class="text-sm text-white/60 leading-relaxed mb-8">{{ plan.desc }}</p>
 
-						<button
-							(click)="bookSession(plan)"
-							class="w-full block text-center font-bold text-sm py-2.5 rounded-xl no-underline transition-all cursor-pointer"
-							[ngClass]="
-								plan.featured
-									? 'bg-gradient-to-br from-brand-purple to-brand-indigo text-white shadow-lg shadow-brand-purple/40 hover:shadow-brand-purple/55'
-									: 'bg-white/[0.07] border border-white/12 text-white hover:bg-white/12'
-							"
-						>
-							Prenota questa lezione
-						</button>
-					</div>
+							<button
+								(click)="bookSession(plan)"
+								class="w-full block text-center font-bold text-sm py-2.5 rounded-xl no-underline transition-all cursor-pointer"
+								[class]="
+									plan.featured
+										? 'bg-gradient-to-br from-brand-purple to-brand-indigo text-white shadow-lg shadow-brand-purple/40 hover:shadow-brand-purple/55'
+										: 'bg-white/[0.07] border border-white/12 text-white hover:bg-white/12'
+								"
+							>
+								Prenota questa lezione
+							</button>
+						</div>
+					}
 				</div>
 
 				<div class="mt-10 md:mt-12 space-y-3 px-4">
 					<p class="text-center text-white/40 text-sm md:text-base">
-						<strong class="text-white/65">Prima lezione gratuita</strong> — prenotando una sessione da 1.5 ore o 2 ore. Vieni a conoscermi senza impegno.
+						<strong class="text-white/65">Prima ora di lezione gratuita</strong> — prenotando una sessione da 1.5 ore o 2 ore. Vieni a conoscermi senza impegno.
 					</p>
 					<p class="text-center text-white/40 text-sm md:text-base">
-						Il pagamento avviene comodamente di persona in <strong class="text-white/65">contanti</strong> o tramite <strong class="text-white/65">PayPal</strong>.<br class="hidden sm:block" />
+						Il pagamento avviene comodamente di persona in <strong class="text-white/65">contanti</strong> o, se preferite, tramite <strong class="text-white/65">PayPal</strong> o
+						<strong class="text-white/65">Revolut</strong>.<br class="hidden sm:block" />
 					</p>
 				</div>
 			</div>
@@ -107,6 +106,18 @@ interface PricePlan {
 export class PricingComponent {
 	isHighSchool = signal(true);
 
+	baseTabClass = "relative z-10 flex-1 py-2.5 text-xs sm:text-sm font-semibold transition-colors duration-300 text-center rounded-lg bg-transparent border-none outline-none cursor-pointer";
+
+	middleSchoolTabClass = computed(() => {
+		const active = !this.isHighSchool();
+		return `${this.baseTabClass} ${active ? "text-white" : "text-white/50 hover:text-white/80"}`;
+	});
+
+	highSchoolTabClass = computed(() => {
+		const active = this.isHighSchool();
+		return `${this.baseTabClass} ${active ? "text-white" : "text-white/50 hover:text-white/80"}`;
+	});
+
 	toggleSchoolLevel() {
 		this.isHighSchool.update(v => !v);
 	}
@@ -115,7 +126,6 @@ export class PricingComponent {
 		const namespace = environment["calComNamespace"] || "undefined";
 		const link = `${namespace}/${plan.calSlug}`;
 
-		// Un modal Cal.com per una UX migliore, o un semplice link
 		Cal("modal", {
 			calLink: link,
 			config: {

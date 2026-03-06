@@ -1,5 +1,4 @@
 import { Component, signal } from "@angular/core";
-import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 
 interface Review {
@@ -12,7 +11,7 @@ interface Review {
 @Component({
 	selector: "app-reviews",
 	standalone: true,
-	imports: [CommonModule, FormsModule],
+	imports: [FormsModule],
 	template: `
 		<section
 			class="py-16 md:py-24 px-5 md:px-8 bg-dark-800"

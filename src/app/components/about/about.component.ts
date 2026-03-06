@@ -58,7 +58,6 @@ import { NgOptimizedImage } from "@angular/common";
 				</div>
 
 				<div class="liquid-glass p-6 sm:p-8 md:p-10 rounded-3xl relative overflow-hidden">
-					<!-- Background blob for depth -->
 					<div class="absolute -top-24 -right-24 w-48 h-48 bg-brand-purple/20 rounded-full blur-3xl pointer-events-none"></div>
 					<div class="absolute -bottom-24 -left-24 w-48 h-48 bg-brand-indigo/20 rounded-full blur-3xl pointer-events-none"></div>
 					<img
@@ -73,7 +72,7 @@ import { NgOptimizedImage } from "@angular/common";
 
 					<div class="flex flex-wrap gap-2 mb-6 md:mb-8">
 						<span class="inline-flex items-center gap-1.5 bg-brand-purple/15 border border-brand-purple/30 text-brand-violet text-xs font-semibold px-3 py-1 rounded-full"
-							>🎓 Laurea Magistrale Fisica</span
+							>🎓 Laurea Magistrale in Fisica</span
 						>
 						<span class="inline-flex items-center gap-1.5 bg-brand-purple/15 border border-brand-purple/30 text-brand-violet text-xs font-semibold px-3 py-1 rounded-full"
 							>💻 Full Stack Software Developer</span

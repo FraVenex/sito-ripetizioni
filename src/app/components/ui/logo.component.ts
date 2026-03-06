@@ -1,10 +1,9 @@
 import { Component, Input } from "@angular/core";
-import { CommonModule } from "@angular/common";
 
 @Component({
 	selector: "app-logo",
 	standalone: true,
-	imports: [CommonModule],
+	imports: [],
 	template: `
 		<div class="flex items-center gap-2 select-none group">
 			<div
@@ -12,10 +11,8 @@ import { CommonModule } from "@angular/common";
 				[style.width]="size + 'px'"
 				[style.height]="size + 'px'"
 			>
-				<!-- Glassy background container -->
 				<div class="absolute inset-0 bg-gradient-to-tr from-brand-purple to-brand-indigo rounded-xl opacity-20 blur-md group-hover:opacity-40 transition-opacity"></div>
 
-				<!-- Logo Icon (Infinity/Wave mathematical concept) -->
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 100 100"
@@ -41,7 +38,6 @@ import { CommonModule } from "@angular/common";
 						</linearGradient>
 					</defs>
 
-					<!-- Mathematical Infinity-like shape constructed from sine waves -->
 					<path
 						d="M20,50 C20,20 50,20 50,50 C50,80 80,80 80,50"
 						stroke="url(#logoGradient)"
@@ -65,17 +61,16 @@ import { CommonModule } from "@angular/common";
 				</svg>
 			</div>
 
-			<div
-				class="flex flex-col justify-center"
-				[class.hidden]="hideText"
-			>
-				<span
-					class="text-white font-extrabold tracking-tight leading-none"
-					[style.fontSize]="size * 0.5 + 'px'"
-				>
-					Aura<span class="text-brand-violet">Math</span>
-				</span>
-			</div>
+			@if (!hideText) {
+				<div class="flex flex-col justify-center">
+					<span
+						class="text-white font-extrabold tracking-tight leading-none"
+						[style.fontSize]="size * 0.5 + 'px'"
+					>
+						Aura<span class="text-brand-violet">Math</span>
+					</span>
+				</div>
+			}
 		</div>
 	`
 })
