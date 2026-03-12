@@ -1,8 +1,8 @@
-name: Deploy static content to Pages
+name: Deploy Angular app to Pages
 
 on:
   push:
-    branches: ["main"]
+    branches: ["main"]   # cambia se usi un altro branch
 
 permissions:
   contents: read
@@ -32,8 +32,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build
-        run: npm run build
+      - name: Build Angular app
+        run: npm run build  # oppure: npx ng build --configuration production
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -41,7 +41,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "./dist/aura-math"
+          path: "dist/aura-math"   # outputPath del tuo angular.json
 
       - name: Deploy to GitHub Pages
         id: deployment
