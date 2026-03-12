@@ -1,8 +1,9 @@
-name: Deploy Angular app to Pages
+name: Deploy Angular app to GitHub Pages
 
 on:
   push:
-    branches: ["main"]   # cambia se usi un altro branch
+    branches:
+      - main    # cambia se il branch principale ha un altro nome
 
 permissions:
   contents: read
@@ -14,35 +15,38 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  deploy:
+  build-and-deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deploy.outputs.page_url }}
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: "npm"
+          cache: npm
 
       - name: Install dependencies
         run: npm ci
 
       - name: Build Angular app
-        run: npm run build  # oppure: npx ng build --configuration production
+        run: |
+          npm run build -- --base-href /sito-ripetizioni/
+          cp dist/aura-math/index.html dist/aura-math/404.html
 
-      - name: Setup Pages
+      - name: Setup GitHub Pages
         uses: actions/configure-pages@v4
 
-      - name: Upload artifact
+      - name: Upload build artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "dist/aura-math"   # outputPath del tuo angular.json
+          path: dist/aura-math
 
       - name: Deploy to GitHub Pages
-        id: deployment
+        id: deploy
         uses: actions/deploy-pages@v4
