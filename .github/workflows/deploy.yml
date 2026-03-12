@@ -35,7 +35,7 @@ jobs:
         run: npm ci
 
       - name: Build Angular app
-        run: npm run build -- --base-href /sito-ripetizioni/
+        run: nnpm run build -- --base-href ./ --output-path dist/aura-math
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v4
