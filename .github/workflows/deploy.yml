@@ -3,7 +3,7 @@ name: Deploy Angular app to GitHub Pages
 on:
   push:
     branches:
-      - main    # cambia se il branch principale ha un altro nome
+      - main
 
 permissions:
   contents: read
@@ -35,7 +35,10 @@ jobs:
         run: npm ci
 
       - name: Build Angular app
-        run: npm run build -- --base-href ./ --output-path dist/aura-math
+        run: npm run build -- --base-href /${{ github.event.repository.name }}/
+
+      - name: Copy index.html to 404.html
+        run: cp dist/aura-math/browser/index.html dist/aura-math/browser/404.html
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v4
@@ -43,7 +46,7 @@ jobs:
       - name: Upload build artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist/aura-math
+          path: dist/aura-math/browser
 
       - name: Deploy to GitHub Pages
         id: deploy
