@@ -78,14 +78,6 @@ import { NgOptimizedImage } from "@angular/common";
 						<span class="inline-flex items-center gap-1.5 bg-brand-purple/15 border border-brand-purple/30 text-brand-violet text-xs font-semibold px-3 py-1 rounded-full"
 							>💻 Full Stack Software Developer</span
 						>
-						<a
-							href="https://www.linkedin.com/in/francesco-veneziano"
-							target="_blank"
-							class="inline-flex items-center gap-1.5 bg-blue-600/15 border border-blue-600/30 text-blue-400 text-xs font-semibold px-3 py-1 rounded-full hover:bg-blue-600/25 transition-colors no-underline"
-						>
-							<span class="w-2 h-2 rounded-full bg-blue-500"></span>
-							LinkedIn
-						</a>
 					</div>
 
 					<div class="pt-5 border-t border-white/[0.08]">
