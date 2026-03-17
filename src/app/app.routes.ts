@@ -14,6 +14,10 @@ export const routes: Routes = [
 		loadComponent: () => import("./pages/cookie-policy/cookie-policy.component").then(m => m.CookiePolicyComponent)
 	},
 	{
+		path: "admin",
+		loadComponent: () => import("./pages/admin/reviews/admin-reviews.component").then(m => m.AdminReviewsComponent)
+	},
+	{
 		path: "**",
 		redirectTo: ""
 	}

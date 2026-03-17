@@ -66,12 +66,20 @@ import { RouterLink } from "@angular/router";
 									>Email</a
 								>
 							</li>
+							<li>
+								<a
+									href="https://www.linkedin.com/in/francesco-veneziano-78ab21179"
+									target="_blank"
+									class="text-white/55 hover:text-white text-sm no-underline transition-colors"
+									>LinkedIn</a
+								>
+							</li>
 						</ul>
 					</div>
 				</div>
 
 				<div class="border-t border-white/[0.06] pt-6 flex flex-wrap items-center justify-between gap-4">
-					<span class="text-white/30 text-xs">© {{ year }} Francesco Veneziano · Aura Math</span>
+					<span class="text-white/30 text-xs">© {{ year }} Francesco Veneziano · Aura Math - Tutti i diritti riservati</span>
 					<div class="flex gap-4">
 						<a
 							routerLink="/privacy-policy"
